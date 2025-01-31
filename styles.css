@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #20c0ec;
+    padding: 2rem;
+}
+
+.tab-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.tab-buttons {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 1rem 2rem;
+    border: none;
+    background: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-button.active {
+    background: #f5f5f7;
+    color: #0071e3;
+    border-bottom: 2px solid #0071e3;
+}
+
+.tab-button:hover {
+    background: #f5f5f7;
+}
+
+.tab-content {
+    display: none;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-content.active {
+    display: block;
+}
+
+h2 {
+    color: #1d1d1f;
+    margin-bottom: 1.5rem;
+}
+
+.resume-section, .project {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #fbfbfd;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    transition: background 0.3s ease;
+}
+
+.resume-section:hover, .project:hover {
+    background: #f0f0f0;
+}
+
+.project h3 {
+    color: #0071e3;
+    margin-bottom: 0.5rem;
+}
+
+.resume-section ul {
+    margin-left: 2.5rem;
+    list-style-type: disc;
+}
+
+.resume-section ul li {
+    margin-bottom: 0.5rem;
+}

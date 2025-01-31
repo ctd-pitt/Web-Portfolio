@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMTD Portfolio</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div style="text-align: center; margin-bottom: 1rem;">
+        <img src="me.jpg" alt="I'm supposed to be a picture" style="width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h1 style="color: white; margin-top: 0.5rem;">Christopher M Trent-Davis</h1>
+    </div>
+
+    <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="switchTab('resume')">Resume</button>
+            <button class="tab-button" onclick="switchTab('projects')">Projects</button>
+        </div>
+
+        <div id="resume" class="tab-content active">
+            <h2>My Resume</h2>
+            <h3>Education</h3>
+            <div class="resume-section">
+                <p>University of Pittsburgh - BS in Computer Science (2024)</p>
+                <p>University of Pittsburgh - Minor in Economics (2024)</p>
+            </div>
+            <h3>Experience</h3>
+            <div class="resume-section">
+                <strong>  Statistician / Data Analyst <br>
+                    Sharpe Strumia Research Foundation | Bryn Mawr, PA | 2025 - present</strong>  <br>
+                    <ul>
+                        <li>Performed statistical analysis on data for medical manuscripts to be published in high-impact journals.</li>
+                    </ul>
+            </div>
+            <div class="resume-section">
+                <strong> Software Engineer <br>
+                    Freelance Projects | Remote | 2019 - Present </strong>  <br>
+                    <ul>
+                        <li>Developed web-based applications and automation scripts for small businesses using Python and Java.</li>
+                        <li>Implemented and optimized SQL databases for better performance and efficiency.</li>
+                        <li>Contributed to development of code for AI company Neuraville, integrating a physics simulator with AI systems to enable real-time data processing and manipulation.</li>
+                    </ul>
+                
+            </div>
+            <div class="resume-section"> 
+                <strong> IT Support & Administrative Assistant   <br>
+                    Michael D. Ezekowitz | Villanova, PA | 2017 - 2024 </strong> <br>
+                    <ul>
+                        <li>Created and managed a cloud-based database system for patient records and billing.</li>
+                        <li>Provided IT assistance for office systems, ensuring smooth operation and resolving technical issues efficiently.</li>
+                        <li>Created PowerPoint presentations and figures for international conferences and assisted in manuscript submissions to peer-reviewed journals (Circulation, JAMA).</li>
+                    </ul>
+            </div>
+            <h3>Technical Skills</h3>
+            <div class="resume-section"> 
+                <ul>
+                    <li> <strong> Languages: </strong> Java, Python, C++, C, SQL, Swift, R</li> 
+                    <li> <strong> Frameworks & Tools: </strong> Git, JUnit, Selenium, Gradle</li> 
+                    <li> <strong> Database Management: </strong> MySQL, PostgreSQL</li> 
+                    <li> <strong> AI/ML: </strong> Machine Learning, Artificial Intelligence principles</li> 
+                    <li> <strong> Software Quality Assurance: </strong> Testing methodologies, Automation tools</li> 
+                </ul>
+            </div>
+            
+        </div>
+
+        <div id="projects" class="tab-content">
+            <h2>My Projects</h2>
+            <div class="project">
+                <h3>Maze Game using Custom OpenGL functions</h3>
+                <p>Built with C, game uses matrices.</p>
+            </div>
+            <div class="project">
+                <h3>FEAGI AI framework integration with Mujoco Physics Simulator</h3>
+                <p>Built controller to link and send data through Python.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
