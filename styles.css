@@ -6,18 +6,153 @@
 }
 
 body {
-    background: #20c0ec;
+    background: #d04d4d;
     padding: 2rem;
+   /*  transition: background-color 0.2s ease-in-out;  */
 }
 
+
+/* Contact Button (Top Right Corner) */
+#contact-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    background: #0071e3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#contact-button:hover {
+    background: #005bb5;
+}
+
+/* Contact Overlay (Covers Whole Page) */
+#contact-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Faded Background */
+    display: none; /* Hidden by Default */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    z-index: 9999; /* Highest priority */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#contact-overlay.show {
+    opacity: 1;
+}
+
+/* Contact Menu */
+#contact-menu {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-out;
+}
+
+#contact-overlay.show #contact-menu {
+    transform: translateY(0);
+}
+
+/* Contact Field Styles */
+.contact-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.contact-field input {
+    border: none;
+    background: #f5f5f5;
+    padding: 5px;
+    border-radius: 5px;
+    width: 70%;
+    text-align: center;
+    font-size: 14px;
+}
+
+.contact-link {
+    color: #0071e3;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    word-break: break-word; /* Prevent long links from breaking layout */
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* Contact Stuff */
+.contact-link:hover {
+    color: #005bb5; /* Darker blue on hover */
+}
+
+.copy-btn {
+    background: none; /* No background */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Add pointer on hover */
+    font-size: 18px; /* Adjust the size of the icon */
+    padding: 5px; /* Add space inside the button */
+    border-radius: 5px; /* Optional: round the corners */
+    display: flex; /* Aligns the icon nicely */
+    align-items: center; /* Center the icon vertically */
+    justify-content: center; /* Center the icon horizontally */
+}
+
+.copy-btn:active {
+    transform: scale(0.9); /* Add a press effect when clicked */
+}
+.copy-btn:hover {
+    background: #dbdbdb;
+}
+
+/* Icon changes when copied */
+.copy-btn.copied .copy-icon {
+    content: "✔️"; /* Change icon to checkmark */
+    color: green;
+}
+
+/* Close Button */
+#close-contact {
+    background: red;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#close-contact:hover {
+    background: darkred;
+}
+
+
+
+/* Entire container (Resmume and Projects) */
 .tab-container {
     max-width: 800px;
     margin: 0 auto;
     background: white;
     border-radius: 18px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    overflow: visible; /*test */
+    transition: max-width 0.1s ease-in-out; /* Smooth shrinking effect */
 }
+
 
 .tab-buttons {
     display: flex;
@@ -33,16 +168,27 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
 }
 
 .tab-button.active {
     background: #f5f5f7;
     color: #0071e3;
     border-bottom: 2px solid #0071e3;
+
+    position: relative; /* Ensures proper stacking */
+   /*  z-index: 1; /* Keeps it above other elements  */
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
 }
 
 .tab-button:hover {
     background: #f5f5f7;
+
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
 }
 
 .tab-content {
@@ -69,7 +215,7 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-.resume-section, .project {
+.resume-section, .project, .resume-container {
     margin-bottom: 1.5rem;
     padding: 1rem;
     background: #fbfbfd;
@@ -94,4 +240,206 @@ h2 {
 
 .resume-section ul li {
     margin-bottom: 0.5rem;
+}
+
+/* Default video styling */
+.hover-video {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; /* Will be set dynamically */
+    width: auto; /* Will be set dynamically */
+    height: auto;
+    max-height: 80vh;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-110%); /* Adjusted to start further off-screen */
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
+    z-index: 502;
+    cursor: pointer;
+}
+
+.project:hover .hover-video {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+
+#maze-id {
+    position: relative; /* Ensures video is positioned relative to this */
+    isolation: isolate;
+}
+
+#maze-id:hover #hover-video {
+    visibility: visible; 
+    opacity: 1; /* Fades in */
+    transition-delay: 0s; /* Removes delay when appearing */
+    pointer-events: auto; /* Enables interaction when visible */
+}
+
+#feagi-project:hover #feagi-video {
+    visibility: visible; 
+    opacity: 1; /* Fades in */
+    transition-delay: 0s; /* Removes delay when appearing */
+    pointer-events: auto; /* Enables interaction when visible */
+}
+
+#color-picker-container {
+    position: fixed; /* Keeps it fixed in the viewport */
+    top: 10px;       /* Adjust as needed */
+    left: 10px;      /* Adjust as needed */
+    z-index: 1000;   /* Ensures it stays above other elements */
+    border: 1px solid black; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease; /* Smooth color change */
+    cursor: pointer; /* Changes cursor on hover */
+    
+}
+
+.submenu {
+    position: absolute;
+    left: 100%; /* Positions it to the right of the project */
+    top: 0;
+    /* bottom: 0; */
+    
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    width: 120px;
+
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    gap: 8px;
+
+    /* Animation Properties */
+    opacity: 0;
+    transform: translateX(-10px); /* Start slightly inside */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+
+}
+
+.submenu-item {
+    display: block;
+   /*  padding: 8px 12px; */
+   padding: 5px;
+    text-decoration: none;
+    color: #0071e3;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    pointer-events: auto;
+    box-sizing: border-box;
+    font-size: smaller;
+}
+
+.submenu-item:hover {
+    background: #f0f0f0;
+}
+
+/* Ensure project container has relative positioning */
+.project {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    z-index: 501;
+}
+
+/* When active, slide out the submenu */
+.project .submenu.show {
+    display: flex; /* Make it visible */
+    opacity: 1;
+    transform: translateX(0); /* Moves it to final position */
+}
+
+
+
+
+
+
+/* test */
+#blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);  /* reduced blur */
+    pointer-events: none;        /* so clicks pass through to raised elements */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 500;  /* base overlay – below the expanded project */
+}
+
+/* When active, show the overlay */
+#blur-overlay.active {
+    opacity: 1;
+}
+
+#hover-video.active {
+    /* width: 300px; 
+    height: auto;
+    transform: translate(175%, -100%);  */
+    z-index: 9999;
+}
+
+/* Video Overlay – using active class */
+#video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+#video-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+/* Video Menu Container */
+#video-menu {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    width: auto;
+    max-width: none;
+    text-align: center;
+}
+/* Expanded Video Styling */
+#expanded-video {
+    width: auto;
+    max-width: 800px;
+    height: auto;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Contact Menu Animation */
+#contact-menu {
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-out;
+}
+
+#contact-overlay.show #contact-menu {
+    transform: translateY(0);
 }

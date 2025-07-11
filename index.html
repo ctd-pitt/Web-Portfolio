@@ -8,11 +8,75 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    
+        <!-- Contact Button -->
+    <button id="contact-button">Contact</button>
+
+    <!-- Contact Overlay (Hidden by Default) -->
+    <div id="contact-overlay">
+        <div id="contact-menu">
+            <h2>Contact Me</h2>
+
+            <div class="contact-field">
+                <span>Email:</span>
+                <a href="mailto:christrentdavis@gmail.com" class="contact-link" data-clipboard="christrentdavis@gmail.com">christrentdavis@gmail.com </a>
+                <button class="copy-btn">
+                    <i class="copy-icon">📋</i>
+                </button>
+            </div>
+            
+            <div class="contact-field">
+                <span>Phone:</span>
+                <a href="tel:+16107871526" class="contact-link" data-clipboard="1 (610) 787-1526">
+                    1 (610) 787-1526
+                </a>
+                <button class="copy-btn">
+                    <i class="copy-icon">📋</i>
+                </button>
+            </div>
+            
+            <div class="contact-field">
+                <span>GitHub:</span>
+                <a href="https://github.com/" target="_blank" class="contact-link">github.com/ctd-pitt</a>
+                <button class="copy-btn" >
+                    <i class="copy-icon">📋</i>
+                </button>
+            </div>
+            
+            <div class="contact-field">
+                <span>LinkedIn:</span>
+                <a href="https://www.linkedin.com/in/christopher-trent-davis-7639aa136" target="_blank" class="contact-link">www.linkedin.com/in/christopher-trent-davis-7639aa136</a>
+                <button class="copy-btn" >
+                    <i class="copy-icon">📋</i>
+                </button>
+            </div>
+
+            <button id="close-contact">Close</button>
+        </div>
+    </div>
+
+     <!-- Color Picker Container -->
+    <div id="color-picker-container">
+        <input type="color" id="color-picker" value="#ff0000">
+    </div>
+
+
+
+  <div id="video-overlay" class="video-overlay">
+    <div id="video-menu">
+      <video id="expanded-video" controls muted loop preload="auto">
+        Your browser does not support the video tag.
+      </video>
+      <!-- <button id="close-video">Close</button> -->
+    </div>
+  </div>
+
     <div style="text-align: center; margin-bottom: 1rem;">
         <img src="me.jpg" alt="I'm supposed to be a picture" style="width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
         <h1 style="color: white; margin-top: 0.5rem;">Christopher M Trent-Davis</h1>
     </div>
-
+    
     <div class="tab-container">
         <div class="tab-buttons">
             <button class="tab-button active" onclick="switchTab('resume')">Resume</button>
@@ -20,16 +84,19 @@
         </div>
 
         <div id="resume" class="tab-content active">
-            <h2>My Resume</h2>
             <h3>Education</h3>
             <div class="resume-section">
-                <p>University of Pittsburgh - BS in Computer Science (2024)</p>
-                <p>University of Pittsburgh - Minor in Economics (2024)</p>
+                <strong>University of Pittsburgh | Pittsburgh, PA | December 2024 <p>BS in Computer Science, Minor in Economics</p> </strong>
+                <ul>
+                    <li>Coursework: Data Structures/Algorithms (A), Machine Learning (A-), Artificial Intelligence (A-), Database Management (A-), Statistics (A), Econometrics (A+), Data Analysis (A+)</li>
+                    <li>Deans List for final two years (returned to school after break)</li>
+                </ul>
             </div>
             <h3>Experience</h3>
+            <div class="resume-container">
             <div class="resume-section">
                 <strong>  Statistician / Data Analyst <br>
-                    Sharpe Strumia Research Foundation | Bryn Mawr, PA | 2025 - present</strong>  <br>
+                    Sharpe Strumia Research Foundation | Bryn Mawr, PA | 2025 - Present</strong>  <br>
                     <ul>
                         <li>Performed statistical analysis on data for medical manuscripts to be published in high-impact journals.</li>
                     </ul>
@@ -53,10 +120,11 @@
                         <li>Created PowerPoint presentations and figures for international conferences and assisted in manuscript submissions to peer-reviewed journals (Circulation, JAMA).</li>
                     </ul>
             </div>
+            </div>
             <h3>Technical Skills</h3>
             <div class="resume-section"> 
                 <ul>
-                    <li> <strong> Languages: </strong> Java, Python, C++, C, SQL, Swift, R</li> 
+                    <li> <strong> Languages: </strong> Java, JavaScript, Python, C++, C, SQL, Swift, R</li> 
                     <li> <strong> Frameworks & Tools: </strong> Git, JUnit, Selenium, Gradle</li> 
                     <li> <strong> Database Management: </strong> MySQL, PostgreSQL</li> 
                     <li> <strong> AI/ML: </strong> Machine Learning, Artificial Intelligence principles</li> 
@@ -64,20 +132,50 @@
                 </ul>
             </div>
             
+            
         </div>
 
         <div id="projects" class="tab-content">
+            <!-- Blur Overlay -->
+    <div id="blur-overlay"></div>
             <h2>My Projects</h2>
-            <div class="project">
+            <div id="maze-id" class="project">
                 <h3>Maze Game using Custom OpenGL functions</h3>
                 <p>Built with C, game uses matrices.</p>
+                <video id="hover-video" class = "hover-video" muted loop preload="auto" src="maze-demo.mp4" ></video>
+
+                <div class="submenu">
+                    <a href="#" class="submenu-item">Source Code</a>
+                    <a href="#" class="submenu-item">Video</a>
+                </div>
             </div>
-            <div class="project">
+            <div id = "feagi-project" class="project">
                 <h3>FEAGI AI framework integration with Mujoco Physics Simulator</h3>
                 <p>Built controller to link and send data through Python.</p>
+                <video id="feagi-video" class = "hover-video" muted loop preload="auto" src="feagi-demo.mp4" ></video>
+
+                <div class="submenu">
+                    <a href="https://github.com/feagi/controllers/tree/main/simulators/mujoco/humanoid" target="_blank" class="submenu-item">Source Code</a>
+                    <a href="#" class="submenu-item">Video</a>
+                </div>
             </div>
+
+            <div id = "file-project" class="project">
+                <h3>File Management System with Custom Built UI for Managing Data</h3>
+                <p>Used to handle medical records and automate tasks that would normally take much longer</p>
+
+                <video id="file-video" class = "hover-video" muted loop preload="auto" src="test.mp4" ></video>
+
+                <div class="submenu">
+                    <a href="#" target="_blank" class="submenu-item">Source Code Not Available</a>
+                    <a href="#" class="submenu-item">Video</a>
+                </div>
+            </div>
+            
         </div>
     </div>
+
+    <!-- <div id = "spacer" style="height: 1000px;"></div> -->
 
     <!-- Link to external JavaScript -->
     <script src="script.js"></script>
