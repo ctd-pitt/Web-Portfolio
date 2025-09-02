@@ -58,7 +58,7 @@
 
      <!-- Color Picker Container -->
     <div id="color-picker-container">
-        <input type="color" id="color-picker" value="#ff0000">
+        <input type="color" id="color-picker" value="#333333">
     </div>
 
 
@@ -127,7 +127,7 @@
                     <li> <strong> Languages: </strong> Java, JavaScript, Python, C++, C, SQL, Swift, R</li> 
                     <li> <strong> Frameworks & Tools: </strong> Git, JUnit, Selenium, Gradle</li> 
                     <li> <strong> Database Management: </strong> MySQL, PostgreSQL</li> 
-                    <li> <strong> AI/ML: </strong> Machine Learning, Artificial Intelligence principles</li> 
+                    <li> <strong> AI/ML: </strong> Machine Learning, Artificial Intelligence principles, TensorFlow</li> 
                     <li> <strong> Software Quality Assurance: </strong> Testing methodologies, Automation tools</li> 
                 </ul>
             </div>
@@ -139,19 +139,10 @@
             <!-- Blur Overlay -->
     <div id="blur-overlay"></div>
             <h2>My Projects</h2>
-            <div id="maze-id" class="project">
-                <h3>Maze Game using Custom OpenGL functions</h3>
-                <p>Built with C, game uses matrices.</p>
-                <video id="hover-video" class = "hover-video" muted loop preload="auto" src="maze-demo.mp4" ></video>
 
-                <div class="submenu">
-                    <a href="#" class="submenu-item">Source Code</a>
-                    <a href="#" class="submenu-item">Video</a>
-                </div>
-            </div>
             <div id = "feagi-project" class="project">
                 <h3>FEAGI AI framework integration with Mujoco Physics Simulator</h3>
-                <p>Built controller to link and send data through Python.</p>
+                <p>Built controller to link and send data through Python. Data transferred includes position sensor, gyroscope, lidar sensor, etc.</p>
                 <video id="feagi-video" class = "hover-video" muted loop preload="auto" src="feagi-demo.mp4" ></video>
 
                 <div class="submenu">
@@ -160,17 +151,44 @@
                 </div>
             </div>
 
+            <div id="maze-id" class="project">
+                <h3>Maze Game using Custom OpenGL functions</h3>
+                <p>Built in C using matrices math. Game includes collision detection and ambient, diffuse, and specular lighting which was implemented from scratch.</p>
+                <video id="hover-video" class = "hover-video" muted loop preload="auto" src="maze-demo.mp4" ></video>
+
+                <div class="submenu">
+                    <a href="https://github.com/ctd-pitt/Project2-CS1566" target="_blank" class="submenu-item">Source Code</a>
+                    <a href="#" class="submenu-item">Video</a>
+                </div>
+            </div>
+            
+
             <div id = "file-project" class="project">
                 <h3>File Management System with Custom Built UI for Managing Data</h3>
-                <p>Used to handle medical records and automate tasks that would normally take much longer</p>
+                <p>Used to handle medical records and automate tasks that would normally take much longer. Integrates APIs for Gmail, Excel, and LibreOffice to increase productivity. </p>
 
-                <video id="file-video" class = "hover-video" muted loop preload="auto" src="test.mp4" ></video>
+                <video id="file-video" class = "hover-video" muted loop preload="auto" src="file-manager-demo.mp4" ></video>
 
                 <div class="submenu">
                     <a href="#" target="_blank" class="submenu-item">Source Code Not Available</a>
                     <a href="#" class="submenu-item">Video</a>
                 </div>
             </div>
+            
+            <div id = "sphere-project" class="project">
+                <h3>Custom built shapes using matrices math and triangles in Open GL.</h3>
+                <p>Created from scratch (no libraries) using C and OpenGL. Demonstrates foundational undersstanding of 3D graphics programming and mathematical concepts such as matrices and vectors.
+                </p>
+
+                <video id="file-video" class = "hover-video" muted loop preload="auto" src="test.mp4" ></video>
+
+                <div class="submenu">
+                    <a href="https://github.com/ctd-pitt/Shape-Demo" target="_blank" class="submenu-item">Source Code</a>
+                    <a href="#" class="submenu-item">Video</a>
+                </div>
+            </div>
+
+            
             
         </div>
     </div>

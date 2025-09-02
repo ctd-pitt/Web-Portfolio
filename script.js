@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const fileContainer = document.getElementById("file-project");
     const video = document.getElementById("hover-video");
     const feagiVideo = document.getElementById("feagi-video");
-    const randomColor = getRandomColor();
+    const defaultColor = "#333333";
     const tabContainer = document.querySelector(".tab-container");
     const contactButton = document.getElementById("contact-button");
     const contactOverlay = document.getElementById("contact-overlay");
@@ -17,15 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
     let closeTimeout = null;
     
 
-    // Set the body's background to the random color
-    document.body.style.backgroundColor = randomColor;
+    // Set the body's background to the default color
+    document.body.style.backgroundColor = defaultColor;
     
     // Get the color picker element
     const colorPicker = document.getElementById('color-picker');
     
-    // Set the color picker's value to the random color
+    // Set the color picker's value to the default color
     if (colorPicker) {
-        colorPicker.value = randomColor;
+        colorPicker.value = defaultColor;
     }
 
     colorPicker.addEventListener('input', (event) => {
