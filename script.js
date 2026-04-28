@@ -49,9 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
     //Code for each copy button
     copyButtons.forEach(button => {
         button.addEventListener("click", function () {
-            // Get the parent `a` tag
-            const parentLink = this.previousElementSibling;
-            const textToCopy = parentLink.getAttribute("data-clipboard");
+            // Get the contact field container and find the link within it
+            const contactField = this.closest('.contact-field');
+            const parentLink = contactField.querySelector('.contact-link');
+            const textToCopy = parentLink ? parentLink.getAttribute("data-clipboard") : null;
 
             // Copy text to clipboard
             navigator.clipboard.writeText(textToCopy).then(() => {
